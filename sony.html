@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameStore · Consolas Sony PlayStation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <h1><i class="fas fa-gamepad" style="color: #f5c842; margin-right: 8px;"></i>Game<span>Store</span></h1>
+    </div>
+    <div class="header-buttons">
+      <a href="index.html" class="consolas-link">
+        <i class="fas fa-home"></i> Inicio
+      </a>
+      <div class="cart-icon" id="cartToggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="consolas.html" class="nav-link active">Consolas</a>
+  </nav>
+
+  <div class="page-container">
+    <div class="page-content">
+      <h2><i class="fab fa-playstation" style="color: #003087;"></i> Consolas Sony PlayStation</h2>
+      <p>La mejor experiencia de juego con PlayStation.</p>
+      
+      <div class="consoles-grid" id="consolesGrid">
+        <!-- Renderizado por JavaScript -->
+      </div>
+      
+      <div style="margin-top: 2rem;">
+        <a href="consolas.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Volver a consolas
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>🎮 GameStore · Todos los derechos reservados · 2026</p>
+  </footer>
+
+  <script src="consolas.js"></script>
+</body>
+</html>
