@@ -606,3 +606,274 @@ body {
     font-size: 1.5rem;
   }
 }
+/* ===== HEADER BUTTONS ===== */
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.consolas-link {
+  background: #f5c842;
+  color: #0b1a2e;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.consolas-link:hover {
+  background: #e0b333;
+  transform: scale(1.03);
+}
+
+/* ===== NAVEGACIÓN CON LINKS ===== */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 60px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 40px;
+  color: #2c3e4f;
+  cursor: pointer;
+  transition: 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.nav-link i {
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  background: #eef2f7;
+}
+
+.nav-link.active {
+  background: #0b1a2e;
+  color: white;
+}
+
+/* ===== BRANDS GRID ===== */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.brand-card {
+  background: #f8faff;
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 3px solid transparent;
+}
+
+.brand-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.brand-card.nintendo {
+  border-color: #e60012;
+}
+.brand-card.nintendo:hover {
+  background: #fff5f5;
+}
+
+.brand-card.sony {
+  border-color: #003087;
+}
+.brand-card.sony:hover {
+  background: #f5f8ff;
+}
+
+.brand-card.microsoft {
+  border-color: #107c10;
+}
+.brand-card.microsoft:hover {
+  background: #f5faf5;
+}
+
+.brand-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #0b1a2e;
+}
+
+.brand-card.nintendo .brand-icon {
+  color: #e60012;
+}
+.brand-card.sony .brand-icon {
+  color: #003087;
+}
+.brand-card.microsoft .brand-icon {
+  color: #107c10;
+}
+
+.brand-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #0b1a2e;
+}
+
+.brand-card p {
+  color: #4a5f73;
+  margin-bottom: 1rem;
+}
+
+.brand-link {
+  display: inline-block;
+  font-weight: 700;
+  color: #f5c842;
+  transition: 0.15s;
+}
+
+.brand-card:hover .brand-link {
+  transform: translateX(4px);
+}
+
+/* ===== CONSOLAS GRID ===== */
+.consoles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.console-card {
+  background: #f8faff;
+  border-radius: 24px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+}
+
+.console-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  border-color: #f5c842;
+}
+
+.console-card h3 {
+  font-size: 1.2rem;
+  margin: 0.8rem 0 0.3rem;
+  color: #0b1a2e;
+}
+
+.console-card .console-specs {
+  color: #4a5f73;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  min-height: 40px;
+}
+
+.console-card .console-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.console-btn {
+  color: white;
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.console-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #eef2f7;
+  color: #0b1a2e;
+  padding: 0.6rem 1.8rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.15s;
+}
+
+.back-btn:hover {
+  background: #dce3ed;
+  transform: scale(1.02);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+  
+  .header-buttons {
+    justify-content: center;
+  }
+  
+  .main-nav {
+    border-radius: 30px;
+    padding: 0.5rem;
+    gap: 0.3rem;
+  }
+  
+  .nav-link {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .brands-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .consoles-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+  
+  .consoles-grid {
+    grid-template-columns: 1fr;
+  }
+}
