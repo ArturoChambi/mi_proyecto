@@ -1,5 +1,5 @@
 (function() {
-  // ----- CATÁLOGO DE JUEGOS (DATOS) -----
+  // ----- CATÁLOGO DE JUEGOS -----
   const games = [
     { id: 1, title: "Cyberpunk 2077", genre: "rpg", price: 29.99, img: "https://placehold.co/300x300/1a2a3a/white?text=Cyberpunk" },
     { id: 2, title: "God of War Ragnarök", genre: "accion", price: 49.99, img: "https://placehold.co/300x300/2c3e4f/white?text=God+of+War" },
@@ -16,6 +16,7 @@
   // ----- ESTADO -----
   let cart = [];
   let currentFilter = 'all';
+  let currentPage = 'home';
 
   // ----- DOM REFERENCIAS -----
   const grid = document.getElementById('gamesGrid');
@@ -28,6 +29,41 @@
   const cartTotalPrice = document.getElementById('cartTotalPrice');
   const cartCount = document.getElementById('cartCount');
   const checkoutBtn = document.getElementById('checkoutBtn');
+  
+  // Navegación
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const pages = {
+    home: document.getElementById('page-home'),
+    contact: document.getElementById('page-contact'),
+    about: document.getElementById('page-about'),
+    location: document.getElementById('page-location')
+  };
+
+  // ----- FUNCIONES DE NAVEGACIÓN -----
+  function navigateTo(page) {
+    // Ocultar todas las páginas
+    Object.values(pages).forEach(p => p.classList.remove('active'));
+    
+    // Mostrar la página seleccionada
+    if (pages[page]) {
+      pages[page].classList.add('active');
+    }
+    
+    // Actualizar botones de navegación
+    navBtns.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.dataset.page === page) {
+        btn.classList.add('active');
+      }
+    });
+    
+    currentPage = page;
+    
+    // Si es la página de inicio, renderizar juegos
+    if (page === 'home') {
+      renderGames(currentFilter);
+    }
+  }
 
   // ----- FUNCIONES DE RENDER -----
   function renderGames(filter = 'all') {
@@ -52,7 +88,6 @@
       </div>
     `).join('');
 
-    // Asignar eventos a los botones "Añadir"
     document.querySelectorAll('.add-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const id = parseInt(btn.dataset.id);
@@ -62,7 +97,6 @@
   }
 
   function renderCart() {
-    // Mostrar items
     if (cart.length === 0) {
       cartItemsList.innerHTML = `<li class="empty-cart">🛒 No hay juegos aún</li>`;
     } else {
@@ -76,7 +110,6 @@
         </li>
       `).join('');
 
-      // Eventos para eliminar items
       document.querySelectorAll('.item-remove').forEach(btn => {
         btn.addEventListener('click', (e) => {
           const idx = parseInt(btn.dataset.index);
@@ -85,7 +118,6 @@
       });
     }
 
-    // Actualizar total y contador
     const total = cart.reduce((sum, item) => sum + item.price, 0);
     cartTotalPrice.textContent = `$${total.toFixed(2)}`;
     cartCount.textContent = cart.length;
@@ -96,7 +128,6 @@
     const game = games.find(g => g.id === gameId);
     if (!game) return;
 
-    // Evitar duplicados (si ya está, no se agrega de nuevo)
     if (cart.some(item => item.id === gameId)) {
       alert('⚠️ Este juego ya está en el carrito.');
       return;
@@ -104,7 +135,6 @@
 
     cart.push({ ...game });
     renderCart();
-    // Animación sutil en el ícono
     cartCount.style.transform = 'scale(1.3)';
     setTimeout(() => cartCount.style.transform = 'scale(1)', 200);
   }
@@ -119,7 +149,7 @@
     renderCart();
   }
 
-  // ----- TOGGLE CARRITO SIDEBAR -----
+  // ----- TOGGLE CARRITO -----
   function openCart() {
     cartOverlay.classList.add('open');
     cartSidebar.classList.add('open');
@@ -132,10 +162,21 @@
     document.body.style.overflow = '';
   }
 
-  // ----- EVENTOS UI -----
-  // Filtros
+  // ----- EVENTOS -----
+  // Navegación
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const page = btn.dataset.page;
+      navigateTo(page);
+    });
+  });
+
+  // Filtros (solo en página home)
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      if (currentPage !== 'home') {
+        navigateTo('home');
+      }
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentFilter = btn.dataset.filter;
@@ -143,7 +184,7 @@
     });
   });
 
-  // Abrir/cerrar carrito
+  // Carrito
   cartToggle.addEventListener('click', openCart);
   cartClose.addEventListener('click', closeCart);
   cartOverlay.addEventListener('click', closeCart);
@@ -159,10 +200,21 @@
     closeCart();
   });
 
+  // Contacto - Envío de formulario
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      alert(`✅ ¡Mensaje enviado!\n\nGracias ${name}, te responderemos a la brevedad.`);
+      contactForm.reset();
+    });
+  }
+
   // ----- INICIO -----
-  renderGames('all');
+  navigateTo('home');
   renderCart();
 
-  // Pequeño mensaje en consola para contar commits (simbólico)
   console.log('🛠️ GameStore iniciada. ¡Lista para jugar!');
+  console.log('📌 Páginas disponibles: Inicio, Contacto, Acerca de, Ubicación');
 })();
