@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameStore · Tienda de videojuegos</title>
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>hola</h1>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <h1><i class="fas fa-gamepad" style="color: #f5c842; margin-right: 8px;"></i>Game<span>Store</span></h1>
+    </div>
+    <div class="cart-icon" id="cartToggle">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </header>
 
+  <!-- FILTROS -->
+  <div class="filters" id="filterContainer">
+    <button class="active" data-filter="all">Todos</button>
+    <button data-filter="accion">Acción</button>
+    <button data-filter="aventura">Aventura</button>
+    <button data-filter="rpg">RPG</button>
+    <button data-filter="deportes">Deportes</button>
+  </div>
 
+  <!-- GRID DE JUEGOS -->
+  <div class="games-grid" id="gamesGrid"></div>
+
+  <!-- CARRITO OVERLAY Y SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <h2>
+      <span><i class="fas fa-shopping-bag"></i> Carrito</span>
+      <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+    </h2>
+    <ul class="cart-items" id="cartItemsList">
+      <li class="empty-cart">🛒 No hay juegos aún</li>
+    </ul>
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cartTotalPrice">$0</span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn"><i class="fas fa-credit-card"></i> Finalizar compra</button>
+  </div>
+
+  <footer class="footer">
+    <p>🎮 GameStore · Todos los derechos reservados · 2026</p>
+  </footer>
+
+  <!-- JavaScript propio -->
+  <script src="script.js"></script>
 </body>
 </html>
