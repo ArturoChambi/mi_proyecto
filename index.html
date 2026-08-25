@@ -15,29 +15,37 @@
     <div class="logo">
       <h1><i class="fas fa-gamepad" style="color: #f5c842; margin-right: 8px;"></i>Game<span>Store</span></h1>
     </div>
-    <div class="cart-icon" id="cartToggle">
-      <i class="fas fa-shopping-cart"></i>
-      <span class="cart-count" id="cartCount">0</span>
+    <div class="header-buttons">
+      <a href="consolas.html" class="consolas-link">
+        <i class="fas fa-gamepad"></i> Consolas
+      </a>
+      <div class="cart-icon" id="cartToggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
     </div>
   </header>
 
   <!-- NAVEGACIÓN PRINCIPAL -->
   <nav class="main-nav">
-    <button class="nav-btn active" data-page="home">
+    <a href="index.html" class="nav-link active">
       <i class="fas fa-home"></i> Inicio
-    </button>
-    <button class="nav-btn" data-page="contact">
+    </a>
+    <a href="consolas.html" class="nav-link">
+      <i class="fas fa-gamepad"></i> Consolas
+    </a>
+    <a href="#contact" class="nav-link" id="navContact">
       <i class="fas fa-envelope"></i> Contacto
-    </button>
-    <button class="nav-btn" data-page="about">
+    </a>
+    <a href="#about" class="nav-link" id="navAbout">
       <i class="fas fa-info-circle"></i> Acerca de
-    </button>
-    <button class="nav-btn" data-page="location">
+    </a>
+    <a href="#location" class="nav-link" id="navLocation">
       <i class="fas fa-map-marker-alt"></i> Ubicación
-    </button>
+    </a>
   </nav>
 
-  <!-- CONTENEDOR DE PÁGINAS -->
+  <!-- CONTENEDOR DE PÁGINAS (SPA) -->
   <div class="page-container">
     
     <!-- PÁGINA: INICIO (TIENDA) -->
@@ -113,13 +121,13 @@
           <div class="about-card">
             <i class="fas fa-rocket" style="font-size: 3rem; color: #f5c842;"></i>
             <h3>Misión</h3>
-            <p>Ofrecer la mejor experiencia de compra de videojuegos, con un catálogo diverso y precios competitivos.</p>
+            <p>Ofrecer la mejor experiencia de compra de videojuegos y consolas, con un catálogo diverso y precios competitivos.</p>
           </div>
           
           <div class="about-card">
             <i class="fas fa-eye" style="font-size: 3rem; color: #f5c842;"></i>
             <h3>Visión</h3>
-            <p>Ser la tienda de videojuegos líder en Latinoamérica, reconocida por nuestra calidad y servicio.</p>
+            <p>Ser la tienda de videojuegos y consolas líder en Latinoamérica, reconocida por nuestra calidad y servicio.</p>
           </div>
           
           <div class="about-card">
@@ -131,7 +139,7 @@
 
         <div class="about-story">
           <h3>Nuestra historia</h3>
-          <p>GameStore nació en 2020 con la idea de crear un espacio donde los gamers pudieran encontrar sus juegos favoritos de manera fácil y rápida. Desde entonces, hemos crecido y nos hemos convertido en un referente en la comunidad gamer.</p>
+          <p>GameStore nació en 2020 con la idea de crear un espacio donde los gamers pudieran encontrar sus juegos y consolas favoritas de manera fácil y rápida. Desde entonces, hemos crecido y nos hemos convertido en un referente en la comunidad gamer.</p>
           <p>Actualmente contamos con más de 500 títulos en nuestro catálogo y una comunidad de más de 10,000 clientes satisfechos.</p>
         </div>
       </div>
@@ -200,7 +208,7 @@
       <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
     </h2>
     <ul class="cart-items" id="cartItemsList">
-      <li class="empty-cart">🛒 No hay juegos aún</li>
+      <li class="empty-cart">🛒 No hay productos aún</li>
     </ul>
     <div class="cart-total">
       <span>Total:</span>
